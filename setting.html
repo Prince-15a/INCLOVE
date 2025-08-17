@@ -1,0 +1,195 @@
+@@ .. @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Settings - IncLove</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js"></script>
+     <link rel="stylesheet" href="setting.css">
++    <link rel="stylesheet" href="global-accessibility.css">
+ </head>
+@@ .. @@
+                     <button class="btn btn-secondary" @click="openNotificationModal"
+                         @mouseover="speak('Notification Settings')">
+                         🔔 Notifications
+                     </button>
++                    <a href="ai-therapist.html">
++                        <button class="btn btn-secondary" @mouseover="speak('AI Therapist')">
++                            🧠 AI Therapist
++                        </button>
++                    </a>
+                     <button class="btn btn-secondary" @click="hibernateAccount" @mouseover="speak('Hibernate Account')">
+                         😴 Hibernate
+                     </button>
+@@ .. @@
+                         <div class="checkbox-group">
+                             <label class="checkbox-item">
+                                 <input type="checkbox" v-model="settings.notifications.matches"> New matches
+                             </label>
+                         </div>
+                     </div>
+
+                     <div class="form-group">
+                         <label class="checkbox-item">
+                             <input type="checkbox" v-model="settings.notifications.messages"> New messages
+                         </label>
+                     </div>
+
+                     <div class="form-group">
+                         <label class="checkbox-item">
+                             <input type="checkbox" v-model="settings.notifications.likes"> Profile likes
+                         </label>
+                     </div>
+
+                     <div class="form-group">
+                         <label class="checkbox-item">
+                             <input type="checkbox" v-model="settings.notifications.email"> Email notifications
+                         </label>
+                     </div>
+                 </section>
++
++                <!-- Advanced Settings -->
++                <section class="settings-card">
++                    <h2 class="card-title">⚙️ Advanced Settings</h2>
++
++                    <div class="form-group">
++                        <label class="form-label" for="data-usage">Data Usage</label>
++                        <select id="data-usage" class="form-control" v-model="settings.dataUsage">
++                            <option value="full">Full Quality (High Data)</option>
++                            <option value="optimized">Optimized (Medium Data)</option>
++                            <option value="minimal">Data Saver (Low Data)</option>
++                        </select>
++                    </div>
+
++                    <div class="form-group">
++                        <label class="checkbox-item">
++                            <input type="checkbox" v-model="settings.autoBackup">
++                            Auto-backup profile data
++                        </label>
++                    </div>
+
++                    <div class="form-group">
++                        <label class="checkbox-item">
++                            <input type="checkbox" v-model="settings.analyticsOptOut">
++                            Opt out of analytics (helps us improve the app)
++                        </label>
++                    </div>
+
++                    <div class="form-group">
++                        <label class="form-label" for="theme">App Theme</label>
++                        <select id="theme" class="form-control" v-model="settings.theme">
++                            <option value="auto">Auto (System)</option>
++                            <option value="light">Light</option>
++                            <option value="dark">Dark</option>
++                            <option value="high-contrast">High Contrast</option>
++                        </select>
++                    </div>
++                </section>
+
++                <!-- Account Management -->
++                <section class="settings-card">
++                    <h2 class="card-title">👤 Account Management</h2>
+
++                    <div class="form-group">
++                        <label class="form-label">Account Status</label>
++                        <div class="account-status">
++                            <span class="status-indicator active"></span>
++                            <span>Active Premium Account</span>
++                        </div>
++                    </div>
+
++                    <div class="form-group">
++                        <label class="form-label">Data Export</label>
++                        <p class="form-help">Download all your data including messages, matches, and profile information.</p>
++                        <button class="btn btn-secondary" @click="exportData">
++                            📥 Export My Data
++                        </button>
++                    </div>
+
++                    <div class="form-group">
++                        <label class="form-label">Account Verification</label>
++                        <div class="verification-status">
++                            <span class="verification-badge verified">✓ Email Verified</span>
++                            <span class="verification-badge verified">✓ Phone Verified</span>
++                            <span class="verification-badge pending">⏳ Photo Verification Pending</span>
++                        </div>
++                    </div>
++                </section>
+             </main>
+@@ .. @@
+                 </div>
+             </div>
+         </div>
+
+-        <!-- Accessibility Panel -->
+-        <div class="accessibility-panel">
+-            <button class="accessibility-toggle" @click="toggleAccessibilityMenu"
+-                aria-label="Open accessibility options">
+-                ♿
+-            </button>
+-
+-            <div class="accessibility-menu" :class="{ active: showAccessibilityMenu }">
+-                <h3 style="margin-bottom: 15px; color: var(--primary-color);">Accessibility Options</h3>
+-
+-                <div class="accessibility-item">
+-                    <label>Screen Reader</label>
+-                    <div class="toggle-switch" :class="{ active: accessibility.screenReader }"
+-                        @click="toggleScreenReader" role="switch" :aria-checked="accessibility.screenReader"
+-                        tabindex="0"></div>
+-                </div>
+-
+-                <div class="accessibility-item">
+-                    <label>High Contrast</label>
+-                    <div class="toggle-switch" :class="{ active: accessibility.highContrast }"
+-                        @click="toggleHighContrast" role="switch" :aria-checked="accessibility.highContrast"
+-                        tabindex="0"></div>
+-                </div>
+-
+-                <div class="accessibility-item">
+-                    <label>Color Blind Friendly</label>
+-                    <div class="toggle-switch" :class="{ active: accessibility.colorBlindFriendly }"
+-                        @click="toggleColorBlindFriendly" role="switch" :aria-checked="accessibility.colorBlindFriendly"
+-                        tabindex="0"></div>
+-                </div>
+-
+-                <div class="accessibility-item">
+-                    <label>Zoom Level</label>
+-                    <div class="zoom-controls">
+-                        <button class="zoom-btn" @click="zoomOut" aria-label="Zoom out">-</button>
+-                        <span>{{ accessibility.zoomLevel }}%</span>
+-                        <button class="zoom-btn" @click="zoomIn" aria-label="Zoom in">+</button>
+-                    </div>
+-                </div>
+-            </div>
+-        </div>
+-
+         <!-- Screen reader announcements -->
+         <div aria-live="polite" class="sr-only" id="announcements">{{ announcement }}</div>
+     </div>
++    
++    <!-- Color Vision Filters -->
++    <svg class="accessibility-filters">
++        <defs>
++            <filter id="protanopia-filter">
++                <feColorMatrix values="0.567 0.433 0     0 0
++                                       0.558 0.442 0     0 0
++                                       0     0.242 0.758 0 0
++                                       0     0     0     1 0" />
++            </filter>
++            <filter id="deuteranopia-filter">
++                <feColorMatrix values="0.625 0.375 0   0 0
++                                       0.7   0.3   0   0 0
++                                       0     0.3   0.7 0 0
++                                       0     0     0   1 0" />
++            </filter>
++            <filter id="tritanopia-filter">
++                <feColorMatrix values="0.95 0.05  0     0 0
++                                       0    0.433 0.567 0 0
++                                       0    0.475 0.525 0 0
++                                       0    0     0     1 0" />
++            </filter>
++        </defs>
++    </svg>
+
++    <script src="global-accessibility.js"></script>
+     <script src="setting.js"></script>
+ </body>

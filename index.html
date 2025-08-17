@@ -1,0 +1,41 @@
+@@ .. @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Inclove - Where Hearts Connect Beyond Boundaries</title>
+     <link rel="stylesheet" href="styles.css">
++    <link rel="stylesheet" href="global-accessibility.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+@@ .. @@
+         </div>
+     </footer>
+
++    <!-- Color Vision Filters -->
++    <svg class="accessibility-filters">
++        <defs>
++            <filter id="protanopia-filter">
++                <feColorMatrix values="0.567 0.433 0     0 0
++                                       0.558 0.442 0     0 0
++                                       0     0.242 0.758 0 0
++                                       0     0     0     1 0" />
++            </filter>
++            <filter id="deuteranopia-filter">
++                <feColorMatrix values="0.625 0.375 0   0 0
++                                       0.7   0.3   0   0 0
++                                       0     0.3   0.7 0 0
++                                       0     0     0   1 0" />
++            </filter>
++            <filter id="tritanopia-filter">
++                <feColorMatrix values="0.95 0.05  0     0 0
++                                       0    0.433 0.567 0 0
++                                       0    0.475 0.525 0 0
++                                       0    0     0     1 0" />
++            </filter>
++        </defs>
++    </svg>
+
++    <script src="global-accessibility.js"></script>
+     <script src="script.js"></script>
+ </body>

@@ -1,0 +1,77 @@
+@@ .. @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>IncLove - Messages</title>
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <link rel="stylesheet" href="message.css">
++    <link rel="stylesheet" href="global-accessibility.css">
+ </head>
+@@ .. @@
+             </div>
+         </div>
+
+-        <!-- Accessibility Panel -->
+-        <button class="accessibility-toggle" @click="toggleAccessibilityPanel()"
+-            aria-label="Open accessibility options">
+-            ♿
+-        </button>
+-
+-        <div class="accessibility-panel" :class="{ open: showAccessibilityPanel }" role="dialog"
+-            aria-label="Accessibility options">
+-            <h3>Accessibility Options</h3>
+-
+-            <div class="accessibility-option">
+-                <label for="screenReader">Screen Reader</label>
+-                <label class="switch">
+-                    <input type="checkbox" id="screenReader" v-model="settings.screenReader"
+-                        @change="toggleScreenReader">
+-                    <span class="slider"></span>
+-                </label>
+-            </div>
+-
+-            <div class="accessibility-option">
+-                <label for="highContrast">High Contrast</label>
+-                <label class="switch">
+-                    <input type="checkbox" id="highContrast" v-model="settings.highContrast">
+-                    <span class="slider"></span>
+-                </label>
+-            </div>
+-
+-            <div class="accessibility-option">
+-                <label>Zoom Level</label>
+-                <div class="zoom-controls">
+-                    <button class="zoom-btn" @click="adjustZoom(-0.1)" aria-label="Zoom out">-</button>
+-                    <span>{{ zoomDisplay }}%</span>
+-                    <button class="zoom-btn" @click="adjustZoom(0.1)" aria-label="Zoom in">+</button>
+-                </div>
+-            </div>
+-
+-            <div class="accessibility-option">
+-                <label for="colorBlind">Color Blind Support</label>
+-                <select id="colorBlind" v-model="settings.colorBlindFilter" aria-label="Color blindness filter">
+-                    <option value="none">None</option>
+-                    <option value="deuteranopia">Deuteranopia</option>
+-                    <option value="protanopia">Protanopia</option>
+-                    <option value="tritanopia">Tritanopia</option>
+-                </select>
+-            </div>
+-
+-            <div class="accessibility-option">
+-                <label for="darkMode">Dark Mode</label>
+-                <label class="switch">
+-                    <input type="checkbox" id="darkMode" v-model="settings.darkMode">
+-                    <span class="slider"></span>
+-                </label>
+-            </div>
+-        </div>
+-
+         <!-- Screen reader announcements -->
+         <div id="announcements" class="sr-only" aria-live="polite" aria-atomic="true">{{ announcement }}</div>
+@@ .. @@
+         </svg>
+     </div>
+
++    <script src="global-accessibility.js"></script>
+     <script src="message.js"></script>
+ </body>

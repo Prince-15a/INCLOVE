@@ -1,0 +1,63 @@
+@@ .. @@
+ .toast.error {
+     background: var(--danger);
+ }
++
++/* New styles for additional settings */
++.account-status {
++    display: flex;
++    align-items: center;
++    gap: 10px;
++    padding: 10px 15px;
++    background: var(--surface);
++    border-radius: 8px;
++    border: 1px solid var(--border-color);
++}
++
++.status-indicator {
++    width: 12px;
++    height: 12px;
++    border-radius: 50%;
++    background: var(--text-secondary);
++}
++
++.status-indicator.active {
++    background: var(--success);
++    animation: pulse 2s infinite;
++}
++
++@keyframes pulse {
++    0%, 100% { opacity: 1; }
++    50% { opacity: 0.5; }
++}
++
++.verification-status {
++    display: flex;
++    flex-wrap: wrap;
++    gap: 10px;
++    margin-top: 10px;
++}
++
++.verification-badge {
++    padding: 6px 12px;
++    border-radius: 20px;
++    font-size: 0.85rem;
++    font-weight: 500;
++}
++
++.verification-badge.verified {
++    background: var(--success);
++    color: white;
++}
++
++.verification-badge.pending {
++    background: var(--warning);
++    color: white;
++}
++
++.form-help {
++    font-size: 0.9rem;
++    color: var(--text-secondary);
++    margin-bottom: 10px;
++    line-height: 1.4;
++}

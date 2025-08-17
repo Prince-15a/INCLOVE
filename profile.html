@@ -1,0 +1,106 @@
+@@ .. @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Inclove - Your Profile</title>
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <link rel="stylesheet" href="profile.css">
++    <link rel="stylesheet" href="global-accessibility.css">
+ 
+ </head>
+@@ .. @@
+                 <nav class="nav-buttons">
+                     <button class="btn btn-secondary" @click="openEditModal" @mouseover="speak('Edit Profile')">
+                         ✏️ Edit Profile
+                     </button>
++                    <a href="ai-therapist.html">
++                        <button class="btn btn-secondary" @mouseover="speak('AI Therapist')">
++                            🧠 AI Therapist
++                        </button>
++                    </a>
+                     <button class="btn btn-secondary" @click="openNotificationModal"
+                         @mouseover="speak('Notification Settings')">
+                         🔔 Notifications
+@@ .. @@
+                 </div>
+             </section>
+         </div>
+
+-        <!-- Accessibility Panel -->
+-        <div class="accessibility-panel" v-if="showAccessibilityPanel">
+-            <h3 @mouseover="speak('Accessibility Options')">♿ Accessibility</h3>
+-
+-            <div class="form-group">
+-                <label class="form-label" @mouseover="speak('Zoom Level')">Zoom Level</label>
+-                <select class="form-select" v-model="zoomLevel" @change="updateZoom">
+-                    <option value="1" @mouseover="speak('Normal size')">Normal (100%)</option>
+-                    <option value="2" @mouseover="speak('Large size')">Large (125%)</option>
+-                    <option value="3" @mouseover="speak('Extra large size')">Extra Large (150%)</option>
+-                </select>
+-            </div>
+-
+-            <div class="checkbox-group">
+-                <input type="checkbox" class="checkbox" id="screenReader" v-model="screenReaderEnabled"
+-                    @change="toggleScreenReader">
+-                <label for="screenReader" @mouseover="speak('Toggle screen reader')">Screen Reader</label>
+-            </div>
+-
+-            <div class="checkbox-group">
+-                <input type="checkbox" class="checkbox" id="highContrast" v-model="highContrastEnabled"
+-                    @change="toggleHighContrast">
+-                <label for="highContrast" @mouseover="speak('Toggle high contrast mode')">High Contrast</label>
+-            </div>
+-
+-            <div class="form-group">
+-                <label class="form-label" @mouseover="speak('Color blindness support')">Color Blindness Support</label>
+-                <select class="form-select" v-model="colorBlindMode" @change="updateColorBlindMode">
+-                    <option value="none" @mouseover="speak('No color blindness support')">None</option>
+-                    <option value="deuteranopia" @mouseover="speak('Deuteranopia support')">Deuteranopia (Green-blind)
+-                    </option>
+-                    <option value="protanopia" @mouseover="speak('Protanopia support')">Protanopia (Red-blind)</option>
+-                    <option value="tritanopia" @mouseover="speak('Tritanopia support')">Tritanopia (Blue-blind)</option>
+-                </select>
+-            </div>
+-        </div>
+-
+-        <!-- Accessibility Toggle Button -->
+-        <button class="accessibility-toggle" @click="toggleAccessibilityPanel"
+-            @mouseover="speak('Toggle accessibility panel')"
+-            :title="showAccessibilityPanel ? 'Close accessibility panel' : 'Open accessibility panel'">
+-            ♿
+-        </button>
+-
+         <!-- Notification Toast -->
+         <div class="notification" v-if="showNotification" @mouseover="speak(notificationMessage)">
+             {{ notificationMessage }}
+         </div>
+     </div>
++    
++    <!-- Color Vision Filters -->
++    <svg class="accessibility-filters">
++        <defs>
++            <filter id="protanopia-filter">
++                <feColorMatrix values="0.567 0.433 0     0 0
++                                       0.558 0.442 0     0 0
++                                       0     0.242 0.758 0 0
++                                       0     0     0     1 0" />
++            </filter>
++            <filter id="deuteranopia-filter">
++                <feColorMatrix values="0.625 0.375 0   0 0
++                                       0.7   0.3   0   0 0
++                                       0     0.3   0.7 0 0
++                                       0     0     0   1 0" />
++            </filter>
++            <filter id="tritanopia-filter">
++                <feColorMatrix values="0.95 0.05  0     0 0
++                                       0    0.433 0.567 0 0
++                                       0    0.475 0.525 0 0
++                                       0    0     0     1 0" />
++            </filter>
++        </defs>
++    </svg>
++
++    <script src="global-accessibility.js"></script>
+     <script src="profile.js"></script>
+ 
+ </body>

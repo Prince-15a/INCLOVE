@@ -1,0 +1,114 @@
+@@ .. @@
+         <a href="explore.html">
+           <li><button @click="navigateTo('home')" aria-label="Go to home page">Home</button></li>
+         </a>
+         <a href="profile.html">
+           <li><button @click="navigateTo('profile')" aria-label="Go to profile page">Profile</button></li>
+         </a>
++        <a href="ai-therapist.html">
++          <li><button @click="navigateTo('ai-therapist')" aria-label="Go to AI therapist page">AI Therapist</button></li>
++        </a>
+         <a href="setting.html">
+           <li><button @click="navigateTo('settings')" aria-label="Go to settings page">Settings</button></li>
+         </a>
+@@ .. @@
+         </div>
+       </div>
+     </div>
+-
+-    <!-- Accessibility Panel -->
+-    <div class="accessibility-panel">
+-      <button class="accessibility-toggle" @click="toggleAccessibilityMenu"
+-        :aria-label="accessibilityMenuOpen ? 'Close accessibility options' : 'Open accessibility options'"
+-        aria-expanded="false" aria-controls="accessibility-menu">
+-        ♿
+-      </button>
+-
+-      <div class="accessibility-menu" :class="{ hidden: !accessibilityMenuOpen }" id="accessibility-menu" role="dialog"
+-        aria-labelledby="menu-title">
+-
+-        <h3 class="menu-title" id="menu-title">Accessibility Options</h3>
+-
+-        <!-- Screen Reader -->
+-        <div class="menu-option">
+-          <label class="option-label" for="screen-reader-toggle">Screen Reader</label>
+-          <div class="toggle-switch" :class="{ active: screenReaderEnabled }" @click="toggleScreenReader" role="switch"
+-            :aria-checked="screenReaderEnabled" tabindex="0" @keydown.space.prevent="toggleScreenReader"
+-            @keydown.enter.prevent="toggleScreenReader">
+-            <div class="toggle-slider"></div>
+-          </div>
+-        </div>
+-
+-        <!-- Zoom Controls -->
+-        <div class="menu-option">
+-          <span class="option-label">Zoom Level</span>
+-          <div class="zoom-controls">
+-            <button class="zoom-btn" @click="zoomOut" :disabled="zoomLevel <= 50" aria-label="Zoom out">−</button>
+-            <span class="zoom-level" aria-live="polite">{{ zoomLevel }}%</span>
+-            <button class="zoom-btn" @click="zoomIn" :disabled="zoomLevel >= 200" aria-label="Zoom in">+</button>
+-          </div>
+-        </div>
+-
+-        <!-- High Contrast -->
+-        <div class="menu-option">
+-          <label class="option-label">High Contrast</label>
+-          <div class="toggle-switch" :class="{ active: highContrastEnabled }" @click="toggleHighContrast" role="switch"
+-            :aria-checked="highContrastEnabled" tabindex="0" @keydown.space.prevent="toggleHighContrast"
+-            @keydown.enter.prevent="toggleHighContrast">
+-            <div class="toggle-slider"></div>
+-          </div>
+-        </div>
+-
+-        <!-- Colorblind Friendly -->
+-        <div class="menu-option">
+-          <label class="option-label">Colorblind Friendly</label>
+-          <div class="toggle-switch" :class="{ active: colorblindFriendlyEnabled }" @click="toggleColorblindFriendly"
+-            role="switch" :aria-checked="colorblindFriendlyEnabled" tabindex="0"
+-            @keydown.space.prevent="toggleColorblindFriendly" @keydown.enter.prevent="toggleColorblindFriendly">
+-            <div class="toggle-slider"></div>
+-          </div>
+-        </div>
+-
+-        <!-- Voice Commands -->
+-        <div class="menu-option">
+-          <label class="option-label">Voice Commands</label>
+-          <div class="toggle-switch" :class="{ active: voiceCommandsEnabled }" @click="toggleVoiceCommands"
+-            role="switch" :aria-checked="voiceCommandsEnabled" tabindex="0" @keydown.space.prevent="toggleVoiceCommands"
+-            @keydown.enter.prevent="toggleVoiceCommands">
+-            <div class="toggle-slider"></div>
+-          </div>
+-        </div>
+-      </div>
+-    </div>
+@@ .. @@
+     </div>
+   </div>
+  <link rel="stylesheet" href="global-accessibility.css">
+ 
++  <!-- Color Vision Filters -->
++  <svg class="accessibility-filters">
++    <defs>
++      <filter id="protanopia-filter">
++        <feColorMatrix values="0.567 0.433 0     0 0
++                               0.558 0.442 0     0 0
++                               0     0.242 0.758 0 0
++                               0     0     0     1 0" />
++      </filter>
++      <filter id="deuteranopia-filter">
++        <feColorMatrix values="0.625 0.375 0   0 0
++                               0.7   0.3   0   0 0
++                               0     0.3   0.7 0 0
++                               0     0     0   1 0" />
++      </filter>
++      <filter id="tritanopia-filter">
++        <feColorMatrix values="0.95 0.05  0     0 0
++                               0    0.433 0.567 0 0
++                               0    0.475 0.525 0 0
++                               0    0     0     1 0" />
++      </filter>
++    </defs>
++  </svg>
++
++  <script src="global-accessibility.js"></script>
+   <script src="explore.js"></script>
+ </body>

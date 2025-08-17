@@ -1,0 +1,55 @@
+@@ .. @@
+ }
+
+ /* Accessibility Panel */
+-.accessibility-panel {
+-    position: fixed;
+-    bottom: 90px;
+-    right: 20px;
+-    background: var(--bg-color);
+-    border: 2px solid var(--primary-color);
+-    border-radius: 15px;
+-    padding: 20px;
+-    box-shadow: var(--shadow);
+-    min-width: 250px;
+-    z-index: 1001;
+-    animation: slideInFromRight 0.3s ease;
+-}
+-
+-@keyframes slideInFromRight {
+-    from {
+-        opacity: 0;
+-        transform: translateX(100%);
+-    }
+-
+-    to {
+-        opacity: 1;
+-        transform: translateX(0);
+-    }
+-}
+-
+-.accessibility-toggle {
+-    position: fixed;
+-    bottom: 20px;
+-    right: 20px;
+-    width: 60px;
+-    height: 60px;
+-    background: var(--primary-color);
+-    color: white;
+-    border: none;
+-    border-radius: 50%;
+-    font-size: 24px;
+-    cursor: pointer;
+-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+-    z-index: 1002;
+-    transition: all 0.3s ease;
+-}
+-
+-.accessibility-toggle:hover {
+-    background: var(--accent-color);
+-    transform: scale(1.1);
+-}
++/* Removed - using global accessibility system */
+ 
+ .notification {
+     position: fixed;

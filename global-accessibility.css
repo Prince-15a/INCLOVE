@@ -1,0 +1,260 @@
+/* Global Accessibility Panel Styles */
+.global-accessibility-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.accessibility-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+}
+
+.accessibility-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+}
+
+.accessibility-toggle:focus {
+    outline: 3px solid #ffd700;
+    outline-offset: 2px;
+}
+
+.accessibility-menu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 320px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.accessibility-menu.active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.accessibility-menu h3 {
+    margin-bottom: 20px;
+    color: #1f2937;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 2px solid #6366f1;
+    padding-bottom: 10px;
+}
+
+.accessibility-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px 0;
+}
+
+.accessibility-option label {
+    font-weight: 500;
+    color: #374151;
+    flex: 1;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background: #d1d5db;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggle-switch.active {
+    background: #6366f1;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.active .toggle-slider {
+    transform: translateX(26px);
+}
+
+.range-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 120px;
+}
+
+.range-control input[type="range"] {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: #d1d5db;
+    outline: none;
+    cursor: pointer;
+}
+
+.range-control input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #6366f1;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.range-control input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #6366f1;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.range-value {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    min-width: 40px;
+    text-align: right;
+}
+
+.accessibility-option select {
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+    color: #374151;
+    font-size: 0.875rem;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+.accessibility-option select:focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 1px;
+    border-color: #6366f1;
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* High contrast mode */
+.high-contrast {
+    filter: contrast(150%) brightness(1.2);
+}
+
+.high-contrast * {
+    border-color: #000000 !important;
+}
+
+.high-contrast .accessibility-toggle {
+    background: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .accessibility-menu {
+    background: #ffffff !important;
+    border: 3px solid #000000 !important;
+}
+
+/* Color blind friendly mode */
+.colorblind-friendly {
+    --primary: #0066cc;
+    --secondary: #ff6600;
+    --success: #009900;
+    --warning: #ffcc00;
+    --error: #cc0000;
+}
+
+/* Reduced motion */
+.reduced-motion * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+/* Color vision filters */
+.protanopia {
+    filter: url('#protanopia-filter');
+}
+
+.deuteranopia {
+    filter: url('#deuteranopia-filter');
+}
+
+.tritanopia {
+    filter: url('#tritanopia-filter');
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .accessibility-menu {
+        width: 280px;
+        right: -10px;
+    }
+    
+    .global-accessibility-panel {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .accessibility-toggle {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+}
+
+/* SVG Filters for Color Blindness */
+.accessibility-filters {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
