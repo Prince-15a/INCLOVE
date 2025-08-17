@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Settings - Inclove</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="accesibility.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">💝</span>
+                <span class="logo-text">Inclove</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="auth.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="accessibility-main">
+        <div class="container">
+            <div class="accessibility-header">
+                <h1 class="accessibility-title">
+                    <span class="accessibility-icon">♿</span>
+                    Accessibility Settings
+                </h1>
+                <p class="accessibility-subtitle">
+                    Customize your Inclove experience to match your needs. 
+                    These settings will be saved and applied across the entire platform.
+                </p>
+            </div>
+
+            <div class="settings-grid">
+                <!-- Visual Settings -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <h2 class="settings-title">
+                            <span class="settings-icon">👁️</span>
+                            Visual Settings
+                        </h2>
+                        <p class="settings-description">
+                            Adjust display options for better visibility
+                        </p>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="font-size">Text Size</label>
+                            <p class="setting-help">Make text larger or smaller</p>
+                        </div>
+                        <div class="setting-control">
+                            <div class="slider-container">
+                                <input type="range" id="font-size" min="12" max="24" value="16" class="slider">
+                                <div class="slider-labels">
+                                    <span>Small</span>
+                                    <span>Normal</span>
+                                    <span>Large</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="contrast-mode">Contrast Mode</label>
+                            <p class="setting-help">Increase contrast for better readability</p>
+                        </div>
+                        <div class="setting-control">
+                            <select id="contrast-mode" class="select-input">
+                                <option value="normal">Normal</option>
+                                <option value="high">High Contrast</option>
+                                <option value="dark">Dark Mode</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="color-blind">Color Vision</label>
+                            <p class="setting-help">Adjust colors for color vision differences</p>
+                        </div>
+                        <div class="setting-control">
+                            <select id="color-blind" class="select-input">
+                                <option value="normal">Normal Vision</option>
+                                <option value="protanopia">Red-Blind (Protanopia)</option>
+                                <option value="deuteranopia">Green-Blind (Deuteranopia)</option>
+                                <option value="tritanopia">Blue-Blind (Tritanopia)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="reduce-motion">Reduce Motion</label>
+                            <p class="setting-help">Minimize animations and transitions</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="reduce-motion">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio Settings -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <h2 class="settings-title">
+                            <span class="settings-icon">🔊</span>
+                            Audio Settings
+                        </h2>
+                        <p class="settings-description">
+                            Configure sound and voice options
+                        </p>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="screen-reader">Screen Reader Support</label>
+                            <p class="setting-help">Enable enhanced screen reader compatibility</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="screen-reader">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="voice-commands">Voice Commands</label>
+                            <p class="setting-help">Control the app with voice commands</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="voice-commands">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="sound-effects">Sound Effects</label>
+                            <p class="setting-help">Play sounds for notifications and interactions</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="sound-effects" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Settings -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <h2 class="settings-title">
+                            <span class="settings-icon">⌨️</span>
+                            Navigation Settings
+                        </h2>
+                        <p class="settings-description">
+                            Customize how you navigate the platform
+                        </p>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="keyboard-nav">Enhanced Keyboard Navigation</label>
+                            <p class="setting-help">Improved keyboard shortcuts and focus indicators</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="keyboard-nav">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="focus-indicators">Enhanced Focus Indicators</label>
+                            <p class="setting-help">Make focus outlines more visible</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="focus-indicators">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="skip-links">Skip Navigation Links</label>
+                            <p class="setting-help">Show links to skip to main content</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="skip-links">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Communication Settings -->
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <h2 class="settings-title">
+                            <span class="settings-icon">💬</span>
+                            Communication Settings
+                        </h2>
+                        <p class="settings-description">
+                            Adjust how you communicate with matches
+                        </p>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="message-format">Preferred Message Format</label>
+                            <p class="setting-help">Choose your preferred way to send messages</p>
+                        </div>
+                        <div class="setting-control">
+                            <select id="message-format" class="select-input">
+                                <option value="text">Text Messages</option>
+                                <option value="voice">Voice Messages</option>
+                                <option value="video">Video Messages</option>
+                                <option value="all">All Formats</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="auto-captions">Auto Captions</label>
+                            <p class="setting-help">Automatically generate captions for voice/video messages</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="auto-captions">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label class="setting-label" for="sign-language">Sign Language Support</label>
+                            <p class="setting-help">Enable sign language interpretation features</p>
+                        </div>
+                        <div class="setting-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="sign-language">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <h2 class="preview-title">Preview Your Settings</h2>
+                <div class="preview-card">
+                    <div class="preview-content">
+                        <h3>Sample Profile Card</h3>
+                        <p>This is how content will appear with your current settings. 
+                           The text size, contrast, and other visual elements will adjust 
+                           based on your preferences.</p>
+                        <button class="btn btn-primary">Sample Button</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions">
+                <button class="btn btn-secondary" id="reset-settings">Reset to Defaults</button>
+                <button class="btn btn-primary" id="save-settings">Save Settings</button>
+            </div>
+
+            <!-- Help Section -->
+            <div class="help-section">
+                <h2 class="help-title">Need Help?</h2>
+                <div class="help-grid">
+                    <div class="help-card">
+                        <h3>📧 Email Support</h3>
+                        <p>accessibility@inclove.com</p>
+                    </div>
+                    <div class="help-card">
+                        <h3>📞 Phone Support</h3>
+                        <p>1-800-INCLOVE (TTY Available)</p>
+                    </div>
+                    <div class="help-card">
+                        <h3>💬 Live Chat</h3>
+                        <p>Available 24/7 with accessibility specialists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Message -->
+    <div class="success-message" id="success-message">
+        <div class="success-content">
+            <span class="success-icon">✅</span>
+            <span class="success-text">Settings saved successfully!</span>
+        </div>
+    </div>
+
+    <script src="accessibility.js"></script>
+</body>
+</html>
